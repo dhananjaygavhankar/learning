@@ -12,8 +12,10 @@ jobs:
       - name: login to azure
         run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
 
-      - name: check_cred
-        run: az account show
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
@@ -47,7 +49,7 @@ jobs:
         run: terraform plan
         continue-on-error: true
 
-      - name: Terraform Plan
+      - name: Terraform apply
         id: apply
         run: terraform apply -auto-approve
         
