@@ -22,9 +22,8 @@ jobs:
       - name: login to azure
         run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
         
-      # - name: Show subscription ID
-      #   run: SUBSCRIPTION_ID=$(az account show --query id -o tsv)
-      #        echo "Subscription ID:$SUBSCRIPTION_ID"
+      - name: Show subscription ID
+        run: Subscription_ID:${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # - name: terraform_installation
       #   uses: hashicorp/setup-terraform@v3
@@ -34,15 +33,15 @@ jobs:
 
       - name: check_PWD
         run: pwd
-        
-      - name: Terraform fmt
-        id: fmt
-        run: terraform fmt
-        continue-on-error: true
       
       - name: Terraform Init
         id: init
         run: terraform init -migrate-state
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt
+        continue-on-error: true
       
       - name: Terraform Validate
         id: validate
