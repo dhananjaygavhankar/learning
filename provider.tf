@@ -1,5 +1,3 @@
-
-
 #============== KINDLY RUN BELLOW COMMAND========== 
 # $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
 
@@ -20,21 +18,10 @@ terraform {
 
 provider "azurerm" {
   features {}
-  # subscription_id = data.azurerm_client_config.current.subscription_id
 }
 
 
 data "azurerm_client_config" "current" {}
-
-# output "Output_subscription_id" {
-#   value = data.azurerm_client_config.current.subscription_id
-# }
-
-# variable "Output_subscription_id" {
-#   description = "The subscription ID to use for the AzureRM provider"
-#   type        = string
-# }
-
 
 resource "azurerm_resource_group" "githubAction" {
   name     = "Test-GithubA"
