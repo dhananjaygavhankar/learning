@@ -26,9 +26,9 @@ provider "azurerm" {
 
 data "azurerm_client_config" "current" {}
 
-output "Output_subscription_id" {
-  value = data.azurerm_client_config.current.subscription_id
-}
+# output "Output_subscription_id" {
+#   value = data.azurerm_client_config.current.subscription_id
+# }
 
 # variable "Output_subscription_id" {
 #   description = "The subscription ID to use for the AzureRM provider"
