@@ -42,10 +42,15 @@ jobs:
         id: validate
         run: terraform validate
       
-      # - name: Terraform Plan
-      #   id: plan
-      #   run: terraform plan
-      #   continue-on-error: true
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan
+        continue-on-error: true
+
+      - name: Terraform Plan
+        id: apply
+        run: terraform apply -auto-approve
+        
         
       
 
