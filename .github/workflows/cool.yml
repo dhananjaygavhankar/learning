@@ -9,9 +9,6 @@ jobs:
     name: My Job
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
-      # - name: login to azure
-      #   run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
-
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
         with:
@@ -22,6 +19,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: login to azure
+        run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
+        
       # - name: Show subscription ID
       #   run: SUBSCRIPTION_ID=$(az account show --query id -o tsv)
       #        echo "Subscription ID:$SUBSCRIPTION_ID"
