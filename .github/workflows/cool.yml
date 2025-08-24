@@ -1,19 +1,29 @@
+name: Learning git hub actions
 on:
   push:
     branches:
       - main
 
 jobs:
-  test:
+  First_job:
+    name: My Job
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
+      - name: Writing first Github workflow !
+        run: echo Writing first Github workflow !
+      
 
-      # - name: Setup Terraform
-      #   uses: hashicorp/setup-terraform@v3.1.2
-      #   with:
-      #     terraform_version: 1.13.0   # jo bhi version chahiye specify kar
+# jobs:
+#   test:
+#     runs-on: [self-hosted, Dhananjay-GH]
+#     steps:
+#       # - name: Checkout repository
+#       #   uses: actions/checkout@v4
 
-      - name: Verify Terraform Installation
-        run: terraform version
+#       # - name: Setup Terraform
+#       #   uses: hashicorp/setup-terraform@v3.1.2
+#       #   with:
+#       #     terraform_version: 1.13.0   # jo bhi version chahiye specify kar
+
+#       - name: Verify Terraform Installation
+#         run: terraform version
