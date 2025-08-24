@@ -9,9 +9,14 @@ jobs:
     name: My Job
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
-      - name: login to azure
-        run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
+      # - name: login to azure
+      #   run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
 
+      - name: Cloning repo
+        uses: actions/checkout@v5.0.0
+        with:
+          github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
+          
       - name: Azure Login
         uses: azure/login@v1
         with:
@@ -21,11 +26,6 @@ jobs:
         run: |
           SUBSCRIPTION_ID=$(az account show --query id -o tsv)
           echo "Subscription ID: $SUBSCRIPTION_ID"
-
-      - name: Cloning repo
-        uses: actions/checkout@v5.0.0
-        with:
-          github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
 
       # - name: terraform_installation
       #   uses: hashicorp/setup-terraform@v3
