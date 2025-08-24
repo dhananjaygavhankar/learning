@@ -1,0 +1,11 @@
+name: Test Self-hosted Runner
+
+on:
+  workflow_dispatch:   # run manually
+
+jobs:
+  test:
+    runs-on: [self-hosted, Dhananjay-GH]
+    steps:
+      - name: Say Hello
+        run: echo "Hello from my self-hosted runner"
