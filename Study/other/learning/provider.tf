@@ -37,6 +37,6 @@ output "Output_subscription_id" {
 
 
 resource "azurerm_resource_group" "githubAction" {
-  name     = "testGHA"
+  name     = "test-GHA"
   location = "central india"
 }
