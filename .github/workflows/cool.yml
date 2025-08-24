@@ -10,7 +10,12 @@ jobs:
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
       - name: Writing first Github workflow !
-        run: echo Writing first Github workflow !
+        run: echo Writing_first_Github_workflow
+
+      - name: Cloning repo
+        uses: actions/checkout@v5.0.0
+        run: echo check_whether_repository_clone?
+        
       
 
 # jobs:
