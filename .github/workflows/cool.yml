@@ -12,19 +12,22 @@ jobs:
       - name: Writing first Github workflow !
         run: echo Writing_first_Github_workflow
 
+      - name: check_repo
+        run: pwd
+
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
         with:
           github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
-
-      # - name: check_repo
-      #   run: echo check_whether_repository_clone?
 
       # - name: terraform_installation
       #   uses: hashicorp/setup-terraform@v3
 
       - name: check_terraform_version
         run: terraform version
+
+      - name: check_PWD
+        run: pwd
         
       - name: Terraform fmt
         id: fmt
