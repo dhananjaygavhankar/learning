@@ -9,11 +9,11 @@ jobs:
     name: My Job
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
-      - name: Writing first Github workflow !
-        run: echo Writing_first_Github_workflow
+      # - name: Writing first Github workflow !
+      #   run: echo Writing_first_Github_workflow
 
-      - name: check_repo
-        run: pwd
+      # - name: check_repo
+      #   run: pwd
 
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
@@ -31,20 +31,20 @@ jobs:
         
       - name: Terraform fmt
         id: fmt
-        run: terraform fmt -check
+        run: terraform fmt
         continue-on-error: true
       
-      # - name: Terraform Init
-      #   id: init
-      #   run: terraform init -input=false
+      - name: Terraform Init
+        id: init
+        run: terraform init -migrate-state
       
-      # - name: Terraform Validate
-      #   id: validate
-      #   run: terraform validate -no-color
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
       
       # - name: Terraform Plan
       #   id: plan
-      #   run: terraform plan -no-color -input=false
+      #   run: terraform plan
       #   continue-on-error: true
         
       
