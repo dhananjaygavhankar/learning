@@ -15,7 +15,12 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Show subscription ID
+        run: |
+          SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+          echo "Subscription ID: $SUBSCRIPTION_ID"
 
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
