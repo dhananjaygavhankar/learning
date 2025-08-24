@@ -9,11 +9,11 @@ jobs:
     name: My Job
     runs-on: [self-hosted, Dhananjay-GH]
     steps:
-      # - name: Writing first Github workflow !
-      #   run: echo Writing_first_Github_workflow
+      - name: login to azure
+        run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
 
-      # - name: check_repo
-      #   run: pwd
+      - name: check_cred
+        run: az account show
 
       - name: Cloning repo
         uses: actions/checkout@v5.0.0
