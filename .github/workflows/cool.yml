@@ -17,13 +17,15 @@ jobs:
         with:
           github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
 
-      - name: check_repo
-        run: echo check_whether_repository_clone?
+      # - name: check_repo
+      #   run: echo check_whether_repository_clone?
 
       - name: terraform_installation
         uses: hashicorp/setup-terraform@v3
-        
 
+      - name: check_terraform_version
+        run: terraform version
+        
       - name: Terraform fmt
         id: fmt
         run: terraform fmt -check
