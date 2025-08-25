@@ -19,11 +19,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: login to azure
-        run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
+      # - name: login to azure
+      #   run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
         
-      - name: Show subscription ID
-        run: az login -t ${{ secrets.AZURE_TENANT_ID }}
+      # - name: Show subscription ID
+      #   run: az login -t ${{ secrets.AZURE_TENANT_ID }}
 
       # - name: terraform_installation
       #   uses: hashicorp/setup-terraform@v3
