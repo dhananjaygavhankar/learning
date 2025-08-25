@@ -29,8 +29,8 @@ jobs:
       #   uses: hashicorp/setup-terraform@v3
 
       - name: check_terraform_version to download
-        uses: hashicorp/setup-terraform@v3
-        # run: terraform version
+        # uses: hashicorp/setup-terraform@v3
+        run: terraform version
 
       - name: check_PWD
         run: pwd
