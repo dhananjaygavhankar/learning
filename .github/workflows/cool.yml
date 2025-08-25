@@ -64,19 +64,3 @@ jobs:
         run: terraform apply -auto-approve -input=false
         
         
-      
-
-# jobs:
-#   test:
-#     runs-on: [self-hosted, Dhananjay-GH]
-#     steps:
-#       # - name: Checkout repository
-#       #   uses: actions/checkout@v4
-
-#       # - name: Setup Terraform
-#       #   uses: hashicorp/setup-terraform@v3.1.2
-#       #   with:
-#       #     terraform_version: 1.13.0   # jo bhi version chahiye specify kar
-
-#       - name: Verify Terraform Installation
-#         run: terraform version
