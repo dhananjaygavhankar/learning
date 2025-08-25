@@ -7,60 +7,60 @@ on:
 jobs:
   First_job:
     name: My Job
-    runs-on: [self-hosted, Dhananjay-GH]
+    runs-on: [self-hosted, GH-Doc-cont]
     steps:
-      - name: Cloning repo
-        uses: actions/checkout@v5.0.0
-        with:
-          github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
+      # - name: Cloning repo
+      #   uses: actions/checkout@v5.0.0
+      #   with:
+      #     github-server-url: 'https://github.com/dhananjaygavhankar/learning.git'
           
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      # - name: Azure Login
+      #   uses: azure/login@v1
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      # - name: login to azure
-      #   run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
+      # # - name: login to azure
+      # #   run: $env:ARM_SUBSCRIPTION_ID = (az account show --query id -o tsv)
         
-      # - name: Show subscription ID
-      #   run: az login -t ${{ secrets.AZURE_TENANT_ID }}
+      # # - name: Show subscription ID
+      # #   run: az login -t ${{ secrets.AZURE_TENANT_ID }}
 
-      # - name: terraform_installation
-      #   uses: hashicorp/setup-terraform@v3
+      # # - name: terraform_installation
+      # #   uses: hashicorp/setup-terraform@v3
 
-      - name: check_terraform_version to download
-        # uses: hashicorp/setup-terraform@v3
-        run: terraform version
+      # - name: check_terraform_version to download
+      #   # uses: hashicorp/setup-terraform@v3
+      #   run: terraform version
 
       - name: check_PWD
         run: pwd
       
-      - name: Terraform Init
-        id: init
-        run: terraform init -migrate-state
-        env:
-          ARM_CLIENT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientId }}
-          ARM_CLIENT_SECRET: ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientSecret }}
-          ARM_SUBSCRIPTION_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).subscriptionId }}
-          ARM_TENANT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).tenantId }}
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init -migrate-state
+      #   env:
+      #     ARM_CLIENT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientId }}
+      #     ARM_CLIENT_SECRET: ${{ fromJSON(secrets.AZURE_CREDENTIALS).clientSecret }}
+      #     ARM_SUBSCRIPTION_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).subscriptionId }}
+      #     ARM_TENANT_ID: ${{ fromJSON(secrets.AZURE_CREDENTIALS).tenantId }}
 
-      - name: Terraform fmt
-        id: fmt
-        run: terraform fmt
-        continue-on-error: true
+      # - name: Terraform fmt
+      #   id: fmt
+      #   run: terraform fmt
+      #   continue-on-error: true
       
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
+      # - name: Terraform Validate
+      #   id: validate
+      #   run: terraform validate
       
-      - name: Terraform Plan
-        id: plan
-        run: terraform plan
-        continue-on-error: true
+      # - name: Terraform Plan
+      #   id: plan
+      #   run: terraform plan
+      #   continue-on-error: true
 
-      - name: Terraform apply
-        id: apply
-        # run: terraform apply -auto-approve
-        run: terraform apply -auto-approve -input=false
+      # - name: Terraform apply
+      #   id: apply
+      #   # run: terraform apply -auto-approve
+      #   run: terraform apply -auto-approve -input=false
         
         
