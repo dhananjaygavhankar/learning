@@ -13,5 +13,6 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'custom'
+    environmentServiceNameAzureRM: 'class_pipleline'
     outputTo: 'console'
     customCommand: 'terraform version'
