@@ -11,3 +11,14 @@ steps:
 
 
 - script: terraform version
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    commandOptions: '-migrate-state'
+    backendServiceArm: 'class_pipleline'
+    backendAzureRmResourceGroupName: 'DoNotDeleteRg'
+    backendAzureRmStorageAccountName: 'donotdeletestorage555'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'terraformclass.tfstate'
