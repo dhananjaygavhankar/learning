@@ -9,10 +9,5 @@ steps:
   inputs:
     terraformVersion: 'latest'
 
-- task: TerraformTask@5
-  inputs:
-    provider: 'azurerm'
-    command: 'custom'
-    environmentServiceNameAzureRM: 'class_pipleline'
-    outputTo: 'console'
-    customCommand: 'terraform version'
+
+- script: terraform version
